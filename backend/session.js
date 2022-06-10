@@ -183,7 +183,7 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
 
         xhr.onload = () => console.log(xhr.responseText);
 
-        let data = `{
+        let dataForTeamUp = `{
           "subcalendar_ids": [
             10915469
           ],
@@ -194,7 +194,7 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
           "custom":{"status":["scheduled"]}
         }`;
 
-        xhr.send(data);
+        xhr.send(dataForTeamUp);
         let dbdata = {
             id: id + 1,
             start: data.date || Date.now(),
