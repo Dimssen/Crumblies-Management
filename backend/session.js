@@ -180,7 +180,7 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
         ],
         "start_dt": data.date || Date.now(),
         "end_dt": "2022-06-11T22:30:00",
-        "title": settings.get('sessions').games.find(f => f.id == req.body.type)?.type,
+        "title": "Shift",
         "who": "DimTest",
         "custom":{"status":["scheduled"]}
         }, {
