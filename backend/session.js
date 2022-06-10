@@ -175,7 +175,7 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
         let thumbnail = treq.data.data[0]?.thumbnails[0]?.imageUrl;
         let ginfo = await noblox.getUniverseInfo(req.body.type);
         
-        xhr = new XMLHttpRequest();
+        var xhr = new XMLHttpRequest();
         xhr.open("POST", "https://api.teamup.com/kshwi9ugi29idmnm95/events");
 
         xhr.setRequestHeader("Teamup-Token", "d0aaa5ba10f7c6fef6f87b4c4a8198a0f5a8ab4aa80591a9f6dac623d4658be4");
