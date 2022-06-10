@@ -173,6 +173,26 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
         let treq = await axios.get(`https://thumbnails.roblox.com/v1/games/multiget/thumbnails?universeIds=${req.body.game}&size=768x432&format=Png&isCircular=false`);
         let thumbnail = treq.data.data[0]?.thumbnails[0]?.imageUrl;
         let ginfo = await noblox.getUniverseInfo(req.body.type);
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "https://api.teamup.com/kshwi9ugi29idmnm95/events");
+
+        xhr.setRequestHeader("Teamup-Token", "d0aaa5ba10f7c6fef6f87b4c4a8198a0f5a8ab4aa80591a9f6dac623d4658be4");
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        xhr.onload = () => console.log(xhr.responseText);
+
+        let data = `{
+          "subcalendar_ids": [
+            10915469
+          ],
+          "start_dt": data.date || Date.now(),
+          "end_dt": "2022-07-10T22:30:00",
+          "title": "Shift",
+          "who": "test",
+          "custom":{"status":["scheduled"]}
+        }`;
+
+        xhr.send(data);
         let dbdata = {
             id: id + 1,
             start: data.date || Date.now(),
