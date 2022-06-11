@@ -97,15 +97,6 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
         return msg.id;
     }
     
-    async function teamupsession(data) {
-
-    axios.post('https://api.teamup.com/kshwi9ugi29idmnm95/events', data, {
-        headers: {
-            "Teamup-Token":"d0aaa5ba10f7c6fef6f87b4c4a8198a0f5a8ab4aa80591a9f6dac623d4658be4",
-            "Content-Type":"application/json",
-        }
-    });
-    }
     router.post('/session/end', perms('host_sessions'),  async (req, res) => {
         if (!req.body?.id) return res.status(400).send({ success: false, message: 'No session id provided' });
         if (typeof req.body.id !== 'number') return res.status(400).send({ success: false, message: 'Session id must be a number' });
@@ -182,17 +173,20 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
         let treq = await axios.get(`https://thumbnails.roblox.com/v1/games/multiget/thumbnails?universeIds=${req.body.game}&size=768x432&format=Png&isCircular=false`);
         let thumbnail = treq.data.data[0]?.thumbnails[0]?.imageUrl;
         let ginfo = await noblox.getUniverseInfo(req.body.type);
-        let dataForPost = {
+        req = await axios.post('https://api.teamup.com/kshwi9ugi29idmnm95/events', {
             subcalendar_ids: [
                 10915469
             ],
             start_dt: "2022-06-11T20:30:00",
             end_dt: "2022-06-11T21:30:00",
-            title: id + 1,
+            title: "id",
             who: "Duhhh me",
             custom: {status:["scheduled"]}
-        };
-        await teamupsession(dataForPost);
+        }, { headers: {
+            "Teamup-Token":"d0aaa5ba10f7c6fef6f87b4c4a8198a0f5a8ab4aa80591a9f6dac623d4658be4",
+            "Content-Type":"application/json",
+        }
+    });
         let dbdata = {
             id: id + 1,
             start: data.date || Date.now(),
