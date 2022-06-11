@@ -183,7 +183,7 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
         "who": "DimTest",
         "custom":{"status":["scheduled"]}
         };
-        axios.post('https://api.teamup.com/kshwi9ugi29idmnm95/events', {dataForPost}, {
+        axios.post('https://api.teamup.com/kshwi9ugi29idmnm95/events', dataForPost, {
         headers: {"Teamup-Token":"d0aaa5ba10f7c6fef6f87b4c4a8198a0f5a8ab4aa80591a9f6dac623d4658be4"}
         });
         let dbdata = {
