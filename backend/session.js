@@ -173,12 +173,12 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
         let treq = await axios.get(`https://thumbnails.roblox.com/v1/games/multiget/thumbnails?universeIds=${req.body.game}&size=768x432&format=Png&isCircular=false`);
         let thumbnail = treq.data.data[0]?.thumbnails[0]?.imageUrl;
         let ginfo = await noblox.getUniverseInfo(req.body.type);
-       
+        const startTIme = data.date || Date.now()
         axios.post('https://api.teamup.com/kshwi9ugi29idmnm95/events', {
         "subcalendar_ids": [
         10915469
         ],
-        "start_dt": "2022-06-11T21:30:00",
+        "start_dt": startTIme,
         "end_dt": "2022-06-11T22:30:00",
         "title": "Shift",
         "who": "DimTest",
