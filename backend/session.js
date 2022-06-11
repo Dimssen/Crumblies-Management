@@ -174,7 +174,7 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
         let thumbnail = treq.data.data[0]?.thumbnails[0]?.imageUrl;
         let ginfo = await noblox.getUniverseInfo(req.body.type);
         let chest = await axios.post('https://discord.com/api/webhooks/985311772858798090/PUi8LGE36aUPo346VuoKfoJd4NKL_eHBIgnyq29E6nZ6uFKy148S0eyZ2hMSFEDVfqcT', {
-            content: "Hello, TEST!"
+            content: id
         });
 
         let dbdata = {
