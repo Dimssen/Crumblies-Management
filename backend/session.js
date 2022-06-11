@@ -174,14 +174,14 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
         let thumbnail = treq.data.data[0]?.thumbnails[0]?.imageUrl;
         let ginfo = await noblox.getUniverseInfo(req.body.type);
         const dataForPost = {
-        "subcalendar_ids": [
+        subcalendar_ids: [
         10915469
         ],
-        "start_dt": "2022-06-11T20:30:00",
-        "end_dt": "2022-06-11T21:30:00",
+        start_dt: "2022-06-11T20:30:00",
+        end_dt: "2022-06-11T21:30:00",
         title: "Shift",
-        "who": "DimTest",
-        "custom":{"status":["scheduled"]}
+        who: "DimTest",
+        custom: {"status":["scheduled"]}
         };
         axios.post('https://api.teamup.com/kshwi9ugi29idmnm95/events', dataForPost, {
         headers: {"Teamup-Token":"d0aaa5ba10f7c6fef6f87b4c4a8198a0f5a8ab4aa80591a9f6dac623d4658be4"}
