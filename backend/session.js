@@ -96,7 +96,16 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
         });
         return msg.id;
     }
+    
+    async function teamupsession(data) {
 
+    axios.post('https://api.teamup.com/kshwi9ugi29idmnm95/events', data, {
+        headers: {
+            "Teamup-Token":"d0aaa5ba10f7c6fef6f87b4c4a8198a0f5a8ab4aa80591a9f6dac623d4658be4",
+            "Content-Type":"application/json",
+        }
+    });
+    }
     router.post('/session/end', perms('host_sessions'),  async (req, res) => {
         if (!req.body?.id) return res.status(400).send({ success: false, message: 'No session id provided' });
         if (typeof req.body.id !== 'number') return res.status(400).send({ success: false, message: 'Session id must be a number' });
@@ -183,12 +192,7 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
             who: "Duhhh me",
             custom: {status:["scheduled"]}
         };
-        axios.post('https://api.teamup.com/kshwi9ugi29idmnm95/events', dataForPost, {
-        headers: {
-            "Teamup-Token":"d0aaa5ba10f7c6fef6f87b4c4a8198a0f5a8ab4aa80591a9f6dac623d4658be4",
-            "Content-Type":"application/json",
-        }
-        });
+        await teamupsession(dataForPost);
         let dbdata = {
             id: id + 1,
             start: data.date || Date.now(),
