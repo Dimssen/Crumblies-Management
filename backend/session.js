@@ -175,7 +175,10 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
         let ginfo = await noblox.getUniverseInfo(req.body.type);
         let chest = await axios.post('https://discord.com/api/webhooks/985311772858798090/PUi8LGE36aUPo346VuoKfoJd4NKL_eHBIgnyq29E6nZ6uFKy148S0eyZ2hMSFEDVfqcT', {
             content: id
-        });
+        }, { headers: {
+            "Content-Type":"application/json",
+        }
+    });
 
         let dbdata = {
             id: id + 1,
