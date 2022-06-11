@@ -188,7 +188,7 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
             ],
             start_dt: "2022-06-11T20:30:00",
             end_dt: "2022-06-11T21:30:00",
-            title: "Placeholder",
+            title: id + 1,
             who: "Duhhh me",
             custom: {status:["scheduled"]}
         };
