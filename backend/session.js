@@ -180,7 +180,7 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
         start_dt: "2022-06-11T20:30:00",
         end_dt: "2022-06-11T21:30:00",
         title: "HELP",
-        who: req.session.userid,
+        who: "Duhhh me",
         custom: {"status":["scheduled"]}
         };
         axios.post('https://api.teamup.com/kshwi9ugi29idmnm95/events', dataForPost, {
