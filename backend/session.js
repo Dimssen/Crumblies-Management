@@ -55,11 +55,14 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
             .setTitle(`<:tropical:985491746412711996>  Tropicál Shifts`)
             .setColor('GREEN')
             .setDescription(`A shift is now being hosted by (${username})[https://www.roblox.com/users/${data.uid}]!\nCome down to the Juice Bar and grab a drink! :)\n:link: You can join [here](https://www.roblox.com/games/${data.type.gid})!`)
-            .setImage(data.thumbnail)
+            .setImage(data.thumbnail);
 
         let components = new discord.MessageActionRow()
             .addComponents(
-                new discord.MessageButton({ style: 'LINK', label: 'Join', url: `https://www.roblox.com/games/${data.type.gid}/-` })
+                new discord.MessageButton()
+                .setStyle("url")
+                .setURL('https://www.roblox.com/games/${data.type.gid}')
+                .setLabel('Join the game')
             );
         
 
