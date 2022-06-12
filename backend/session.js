@@ -54,7 +54,6 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
         let embed = new discord.MessageEmbed()
             .setTitle(`${data.type.name} is now being hosted and will commence shortly!`)
             .setColor('GREEN')
-            .setTimestamp()
             .setAuthor(username, pfp, `https://www.roblox.com/users/${data.uid}`)
             .setDescription(`A ${data.type.name} is now being hosted by ${username}! Join the game below to attend this session.`)
             .addField('Gamelink', `https://www.roblox.com/games/${data.type.gid}/-`, true)
@@ -85,7 +84,6 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
         let embed = new discord.MessageEmbed()
             .setTitle(`${data.type.name} ended`)
             .setColor('RED')
-            .setTimestamp()
             .setAuthor(username, pfp, `https://www.roblox.com/users/${data.uid}`)
             .setDescription(`The ${data.type.name} hosted by ${username} has ended! We will host more very soon don't worry`);
 
@@ -177,7 +175,7 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
             subcalendar_ids: [
                 10915469
             ],
-            start_dt: data.date.split('.')[0]+"Z",
+            start_dt: data.date.split('.')[0]+"Z" || Date.now().split('.')[0]+"Z",
             end_dt: whaTime.toISOString().split('.')[0]+"Z",
             title: "Session #"+(id+1).toString(),
             who: await noblox.getUsernameFromId(req.session.userid),
