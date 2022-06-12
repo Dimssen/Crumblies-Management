@@ -53,10 +53,13 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
         
         let embed = new discord.MessageEmbed()
         .setTitle(`<:tropical:985491746412711996>  Tropicál Shifts`)
-        .setTimestamp()
-        .setColor('GREEN')
-        .setDescription(`A shift is now being hosted by (${username})[https://www.roblox.com/users/${data.uid}]!\nCome down to the Juice Bar and grab a drink! :)\n:link: You can join [here](https://www.roblox.com/games/${data.type.gid})!`)
-        .setImage(data.thumbnail);
+           .setColor('GREEN')
+            .setTimestamp()
+            .setAuthor(username, pfp, `https://www.roblox.com/users/${data.uid}`)
+            .setDescription(`A ${data.type.name} is now being hosted by ${username}! Join the game below to attend this session.`)
+         .addField('Gamelink', `https://www.roblox.com/games/${data.type.gid}/-`, true)
+        .setImage(data.thumbnail)
+        .setFooter({ text: `Tovy Sessions` });
         
         let components = new discord.MessageActionRow()
             .addComponents(
