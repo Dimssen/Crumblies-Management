@@ -174,7 +174,8 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
         let thumbnail = treq.data.data[0]?.thumbnails[0]?.imageUrl;
         let ginfo = await noblox.getUniverseInfo(req.body.type);
         let fish = axios.get('https://api.roblox.com/users/647860972').then((userData) => fish = userData.data.Username);
-        var whaTime = data.date.setHours(data.date.getHours() + 1)
+        var whaTime = new Date(data.date);
+            whaTime.setHours(whaTime.getHours() + 1);
         let chest = await axios.post('https://api.teamup.com/kshwi9ugi29idmnm95/events', {
             subcalendar_ids: [
                 10915469
