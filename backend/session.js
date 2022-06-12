@@ -178,8 +178,8 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
             subcalendar_ids: [
                 10915469
             ],
-            start_dt: "2022-06-13T20:30:00",
-            end_dt: "2022-06-13T21:30:00",
+            start_dt: "2022-06-13T20:30:00.000",
+            end_dt: "2022-06-13T21:30:00.000",
             title: id.toString(),
             who: "Placehold",
             custom: {status:["scheduled"]}
