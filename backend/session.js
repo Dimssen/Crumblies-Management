@@ -187,7 +187,7 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
             "Teamup-Token":"d0aaa5ba10f7c6fef6f87b4c4a8198a0f5a8ab4aa80591a9f6dac623d4658be4",
         }
     });
-        console.log(data.date.split('.')[0]+"Z");
+        console.log(data.date.setHours(data.date.getHours() + 1));
         let dbdata = {
             id: id + 1,
             start: data.date || Date.now(),
