@@ -183,7 +183,7 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
             ],
             start_dt: data.date.split('.')[0]+"Z",
             end_dt: whaTime.toISOString().split('.')[0]+"Z",
-            title: "Session #"+id.toString(),
+            title: "Session #"+(id+1).toString(),
             who: await noblox.getUsernameFromId(req.session.userid),
             custom: {status:["scheduled"]}
            }, { headers: {
