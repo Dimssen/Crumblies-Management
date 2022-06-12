@@ -50,13 +50,14 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
         let webhookc = new discord.WebhookClient({ url: webhook });
         let username = await fetchusername(data.uid);
         let pfp = await fetchpfp(data.uid);
-
+        
         let embed = new discord.MessageEmbed()
-            .setTitle(`<:tropical:985491746412711996>  Tropicál Shifts`)
-            .setColor('GREEN')
-            .setDescription(`A shift is now being hosted by (${username})[https://www.roblox.com/users/${data.uid}]!\nCome down to the Juice Bar and grab a drink! :)\n:link: You can join [here](https://www.roblox.com/games/${data.type.gid})!`)
-            .setImage(data.thumbnail);
-
+        .setTitle(`<:tropical:985491746412711996>  Tropicál Shifts`)
+        .setTimestamp()
+        .setColor('GREEN')
+        .setDescription(`A shift is now being hosted by (${username})[https://www.roblox.com/users/${data.uid}]!\nCome down to the Juice Bar and grab a drink! :)\n:link: You can join [here](https://www.roblox.com/games/${data.type.gid})!`)
+        .setImage(data.thumbnail);
+        
         let components = new discord.MessageActionRow()
             .addComponents(
                 new discord.MessageButton()
