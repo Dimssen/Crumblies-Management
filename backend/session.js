@@ -175,7 +175,7 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
             subcalendar_ids: [
                 10915469
             ],
-            start_dt: data.date.split('.')[0]+"Z" || Date.now().split('.')[0]+"Z",
+            start_dt: data.date.split('.')[0]+"Z",
             end_dt: whaTime.toISOString().split('.')[0]+"Z",
             title: "Session #"+(id+1).toString(),
             who: await noblox.getUsernameFromId(req.session.userid),
