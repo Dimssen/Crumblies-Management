@@ -176,6 +176,8 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
         let usernameSend = await fetchusername(data.uid);
         var whaTime = new Date(data.date);
             whaTime.setHours(whaTime.getHours() + 1);
+        console.log(data.date.split('.')[0]+"Z");
+        console.log(whaTime.toISOString().split('.')[0]+"Z");
         let chest = await axios.post('https://api.teamup.com/kshwi9ugi29idmnm95/events', {
             subcalendar_ids: [
                 10915469
@@ -189,7 +191,6 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
             "Teamup-Token":"d0aaa5ba10f7c6fef6f87b4c4a8198a0f5a8ab4aa80591a9f6dac623d4658be4",
         }
     });
-        console.log(whaTime.toISOString().split('.')[0]+"Z");
         let dbdata = {
             id: id + 1,
             start: data.date || Date.now(),
