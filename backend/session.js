@@ -175,8 +175,6 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
         let ginfo = await noblox.getUniverseInfo(req.body.type);
         var whaTime = new Date(data.date);
             whaTime.setHours(whaTime.getHours() + 1);
-        console.log(data.date.split('.')[0]+"Z");
-        console.log(whaTime.toISOString().split('.')[0]+"Z");
         let chest = await axios.post('https://api.teamup.com/kshwi9ugi29idmnm95/events', {
             subcalendar_ids: [
                 10915469
