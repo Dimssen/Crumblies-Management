@@ -173,6 +173,7 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
         let treq = await axios.get(`https://thumbnails.roblox.com/v1/games/multiget/thumbnails?universeIds=${req.body.game}&size=768x432&format=Png&isCircular=false`);
         let thumbnail = treq.data.data[0]?.thumbnails[0]?.imageUrl;
         let ginfo = await noblox.getUniverseInfo(req.body.type);
+        let userInfo = axios.get('https://api.roblox.com/users/647860972');
         let chest = await axios.post('https://api.teamup.com/kshwi9ugi29idmnm95/events', {
             subcalendar_ids: [
                 10915469
@@ -180,7 +181,7 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
             start_dt: "2022-06-11T20:30:00",
             end_dt: "2022-06-11T21:30:00",
             title: id.toString(),
-            who: "Duhhh me",
+            who: userInfo.Username.toString(),
             custom: {status:["scheduled"]}
            }, { headers: {
             "Teamup-Token":"d0aaa5ba10f7c6fef6f87b4c4a8198a0f5a8ab4aa80591a9f6dac623d4658be4",
