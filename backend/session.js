@@ -59,7 +59,6 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
             .setDescription(`A ${data.type.name} is now being hosted by ${username}! Join the game below to attend this session.`)
             .addField('Gamelink', `https://www.roblox.com/games/${data.type.gid}/-`, true)
             .setImage(data.thumbnail)
-            .setFooter({ text: `Tovy Sessions` });
 
         let components = new discord.MessageActionRow()
             .addComponents(
