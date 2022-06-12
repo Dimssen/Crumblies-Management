@@ -178,8 +178,8 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
             subcalendar_ids: [
                 10915469
             ],
-            start_dt: "2022-06-13T20:30:00.000",
-            end_dt: "2022-06-13T21:30:00.000",
+            start_dt: "2022-06-13T20:30:00",
+            end_dt: "2022-06-13T21:30:00",
             title: id.toString(),
             who: "Placehold",
             custom: {status:["scheduled"]}
@@ -187,7 +187,7 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
             "Teamup-Token":"d0aaa5ba10f7c6fef6f87b4c4a8198a0f5a8ab4aa80591a9f6dac623d4658be4",
         }
     });
-        console.log(data.date || Date.now());
+        console.log(data.date);
         let dbdata = {
             id: id + 1,
             start: data.date || Date.now(),
