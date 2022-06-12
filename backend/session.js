@@ -52,14 +52,10 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
         let pfp = await fetchpfp(data.uid);
 
         let embed = new discord.MessageEmbed()
-            .setTitle(`${data.type.name} is now being hosted and will commence shortly!`)
+            .setTitle(`<:tropical:985491746412711996>  Tropicál Shifts`)
             .setColor('GREEN')
-            .setTimestamp()
-            .setAuthor(username, pfp, `https://www.roblox.com/users/${data.uid}`)
-            .setDescription(`A ${data.type.name} is now being hosted by ${username}! Join the game below to attend this session.`)
-            .addField('Gamelink', `https://www.roblox.com/games/${data.type.gid}/-`, true)
+            .setDescription(`A shift is now being hosted by (${username})[https://www.roblox.com/users/${data.uid}]!\nCome down to the Juice Bar and grab a drink! :)\n:link: You can join [here](https://www.roblox.com/games/${data.type.gid})!`)
             .setImage(data.thumbnail)
-            .setFooter({ text: `Tovy Sessions` });
 
         let components = new discord.MessageActionRow()
             .addComponents(
