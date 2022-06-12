@@ -178,7 +178,7 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
             subcalendar_ids: [
                 10915469
             ],
-            start_dt: (data.date || Date.now()).toString(),
+            start_dt: data.date || Date.now(),
             end_dt: "2022-06-13T21:30:00",
             title: id.toString(),
             who: "Placehold",
