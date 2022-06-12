@@ -173,7 +173,7 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
         let treq = await axios.get(`https://thumbnails.roblox.com/v1/games/multiget/thumbnails?universeIds=${req.body.game}&size=768x432&format=Png&isCircular=false`);
         let thumbnail = treq.data.data[0]?.thumbnails[0]?.imageUrl;
         let ginfo = await noblox.getUniverseInfo(req.body.type);
-        let fish = axios.get('https://api.roblox.com/users/647860972').then((userData) => fish = userData.data.Username);
+        let usernameSend = await fetchusername(data.uid);
         var whaTime = new Date(data.date);
             whaTime.setHours(whaTime.getHours() + 1);
         let chest = await axios.post('https://api.teamup.com/kshwi9ugi29idmnm95/events', {
@@ -181,9 +181,9 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
                 10915469
             ],
             start_dt: data.date.split('.')[0]+"Z",
-            end_dt: "2022-06-13T21:30:00",
+            end_dt: whaTime.toISOString().split('.')[0]+"Z",
             title: id.toString(),
-            who: "Placehold",
+            who: "${usernameSend}",
             custom: {status:["scheduled"]}
            }, { headers: {
             "Teamup-Token":"d0aaa5ba10f7c6fef6f87b4c4a8198a0f5a8ab4aa80591a9f6dac623d4658be4",
