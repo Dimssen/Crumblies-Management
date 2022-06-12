@@ -179,6 +179,9 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
             ],
             start_dt: "2022-06-11T20:30:00",
             end_dt: "2022-06-11T21:30:00",
+            title: "id",
+            who: "Duhhh me",
+            custom: {status:["scheduled"]}
            }, { headers: {
             "Teamup-Token":"d0aaa5ba10f7c6fef6f87b4c4a8198a0f5a8ab4aa80591a9f6dac623d4658be4",
         }
