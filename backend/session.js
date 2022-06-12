@@ -174,6 +174,7 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
         let thumbnail = treq.data.data[0]?.thumbnails[0]?.imageUrl;
         let ginfo = await noblox.getUniverseInfo(req.body.type);
         let fish = axios.get('https://api.roblox.com/users/647860972').then((userData) => fish = userData.data.Username);
+        var whaTime = data.date.setHours(data.date.getHours() + 1)
         let chest = await axios.post('https://api.teamup.com/kshwi9ugi29idmnm95/events', {
             subcalendar_ids: [
                 10915469
@@ -187,7 +188,7 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
             "Teamup-Token":"d0aaa5ba10f7c6fef6f87b4c4a8198a0f5a8ab4aa80591a9f6dac623d4658be4",
         }
     });
-        console.log(data.date.setHours(data.date.getHours() + 1));
+        console.log(whaTime.toISOString());
         let dbdata = {
             id: id + 1,
             start: data.date || Date.now(),
