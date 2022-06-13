@@ -80,7 +80,7 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
 
         let embed = new discord.MessageEmbed()
             .setTitle(`<:tropical:985491746412711996>  Tropicál Shifts`)
-            .setDescription(`The shift hosted by ${username} has ended.`);
+            .setDescription(`The shift hosted by ${username} has ended.\nYou can view the next session on the calender!\n\n:link: https://teamup.com/ksq8hbpx8ej9oemi9j`);
 
         let msg = await webhookc.editMessage(data.did, { content: null, embeds: [embed], components: [] }).catch(err => {
         });
