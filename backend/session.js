@@ -53,8 +53,7 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
 
         let embed = new discord.MessageEmbed()
             .setTitle(`:tropical:  Tropicál Shifts`)
-            .setDescription(`A shift is now being hosted by (${username})[https://www.roblox.com/users/${data.uid}]!\nCome down to the Juice Bar and grab a drink! :)\n:link:`)
-            .addField('Gamelink', `https://www.roblox.com/games/${data.type.gid}/-`, true)
+            .setDescription(`A shift is now being hosted by ${username}!\nCome down to the Juice Bar and grab a drink! :)\n:link: https://www.roblox.com/games/${data.type.gid}`)
             .setImage(data.thumbnail)
 
         let components = new discord.MessageActionRow()
@@ -82,7 +81,6 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
         let embed = new discord.MessageEmbed()
             .setTitle(`${data.type.name} ended`)
             .setDescription(`The shift hosted by (${username})[https://www.roblox.com/users/${data.uid}] has ended.`);
-
 
         let msg = await webhookc.editMessage(data.did, { content: null, embeds: [embed], components: [] }).catch(err => {
         });
