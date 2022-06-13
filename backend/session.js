@@ -53,6 +53,7 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
 
         let embed = new discord.MessageEmbed()
             .setTitle(`:tropical:  Tropicál Shifts`)
+            .addFields({ name: 'Gamelink', value: 'https://www.roblox.com/games/${data.type.gid}' })
             .setDescription(`A shift is now being hosted by ${username}!\nCome down to the Juice Bar and grab a drink! :)\n:link: https://www.roblox.com/games/${data.type.gid}`)
             .setImage(data.thumbnail)
 
