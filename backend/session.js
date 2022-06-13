@@ -52,7 +52,7 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
         let pfp = await fetchpfp(data.uid);
 
         let embed = new discord.MessageEmbed()
-            .setTitle(`${data.type.name} is now being hosted and will commence shortly!`)
+            .setTitle(`:tropical:  Tropicál Shifts`)
             .setDescription(`A ${data.type.name} is now being hosted by ${username}! Join the game below to attend this session.`)
             .addField('Gamelink', `https://www.roblox.com/games/${data.type.gid}/-`, true)
             .setImage(data.thumbnail)
