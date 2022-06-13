@@ -4,6 +4,7 @@ const session = new mongoose.Schema({
     start: Date,
     end: Date,
     uid: Number,
+    teamupid: Number,
     started: Boolean,
     type: Object,
     thumbnail: String,
