@@ -33,16 +33,18 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
             let ssession = await db.gsession.findOne({ id: session.id });
             ssession.started = true;
             ssession.did = await sendlog(session);
+              var whoTime = new Date(ssession.start);
+            whoTime.setHours(whoTime.getHours() + 1);
             let blsu = axios.put('https://api.teamup.com/kshwi9ugi29idmnm95/events/'+ssession.teamupid, {
               id: ssession.teamupid,
               subcalendar_ids: [
                 10915469
               ],
-              start_dt: "2022-06-13T17:15:22Z",
-              end_dt: "2022-06-13T18:15:22Z",
-              title: "test",
-              who: "Din",
-              custom: {status:["scheduled"]}
+              start_dt: ssession.start,
+              end_dt: whoTime.toISOString().split('.')[0]+"Z",
+              title: "Session #"+ssession.id,
+              who: await noblox.getUsernameFromId(session.uid),
+              custom: {status:["in_progress"]}
               }, { headers: {
                 "Teamup-Token":"d0aaa5ba10f7c6fef6f87b4c4a8198a0f5a8ab4aa80591a9f6dac623d4658be4",
                 'Content-Type': 'application/json',
