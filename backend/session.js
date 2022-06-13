@@ -81,7 +81,7 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
 
         let embed = new discord.MessageEmbed()
             .setTitle(`${data.type.name} ended`)
-            .setDescription(`A shift is now being hosted by (${username})[https://www.roblox.com/users/${data.uid}]!`);
+            .setDescription(`The shift hosted by (${username})[https://www.roblox.com/users/${data.uid}] has ended.`);
 
 
         let msg = await webhookc.editMessage(data.did, { content: null, embeds: [embed], components: [] }).catch(err => {
