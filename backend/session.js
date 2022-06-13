@@ -177,13 +177,14 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
            }, { headers: {
             "Teamup-Token":"d0aaa5ba10f7c6fef6f87b4c4a8198a0f5a8ab4aa80591a9f6dac623d4658be4",
         }
-    });
+    }).then((response) => fosh = response.data.event.id);
         let dbdata = {
             id: id + 1,
             start: data.date || Date.now(),
             uid: req.session.userid,
             thumbnail,
             started: data.now,
+            teamupid: fosh,
             type: {
                 id: req.body.type,
                 name: settings.get('sessions').games.find(f => f.id == req.body.type)?.type,
