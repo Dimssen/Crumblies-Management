@@ -33,20 +33,7 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
             let ssession = await db.gsession.findOne({ id: session.id });
             ssession.started = true;
             ssession.did = await sendlog(session);
-            automation.runEvent('sessionstarted', {
-                type: ssession.type.name,
-                id: ssession.id,
-                username: await fetchusername(ssession.uid),
-                game: ssession.type.gname,
-            });
-            await ssession.save();
-        });
-    }, 60000)
-
-    async function sendlog(data) {
-        if (!settings.get('sessions')?.discohook) return null;
-        let webhook = settings.get('sessions').discohook;
-        var whoTime = new Date(data.start);
+            var whoTime = new Date(data.start);
             whoTime.setHours(whoTime.getHours() + 1);
             let blsu = axios.put('https://api.teamup.com/kshwi9ugi29idmnm95/events/'+data.teamupid, {
               id: data.teamupid,
@@ -63,6 +50,20 @@ const erouter = (usernames, pfps, settings, permissions, automation) => {
                 'Content-Type': 'application/json',
               }
             });
+            automation.runEvent('sessionstarted', {
+                type: ssession.type.name,
+                id: ssession.id,
+                username: await fetchusername(ssession.uid),
+                game: ssession.type.gname,
+            });
+            await ssession.save();
+        });
+    }, 60000)
+
+    async function sendlog(data) {
+        if (!settings.get('sessions')?.discohook) return null;
+        let webhook = settings.get('sessions').discohook;
+        
         let webhookc = new discord.WebhookClient({ url: webhook });
         let username = await fetchusername(data.uid);
         let pfp = await fetchpfp(data.uid);
